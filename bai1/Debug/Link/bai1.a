@@ -1,0 +1,85 @@
+;/*
+; * bai1.c
+; *
+; * Created: 25/09/2020 14:36:59
+; * Author: admin
+; */
+;
+;/*Viet chuong trinh dieu khien bat den LED noi vao PE5*/
+;/*
+;Muon dieu khien den LEBD thi du lieu phai di tu MCU ra PE5
+;Neu ket noi LED voi MCU theo dang catot thi LED sang khi xuat logic loi ra = 0 (GND = 0V)
+;Neu ket noi LEB voi MCU theo dang anot thi LED sang khi xuat logic loi ra = 1 (VCC = 5V)
+;Mach dien thuc hang duoc noi dang K
+;*/
+;
+;/*Trong AVR co ba thanh ghi tac dong vao PORT
+;    1. DDR = Data DiRection = thanh ghi huong du lieu
+;        DDR = 0 ; MCU nhan du lieu tu ngoai vao (input)
+;        DDR = 1 ; MCU dua du lieu ra ngoai (output)
+;    2. PORT  = thanh ghi du lieu
+;        PORT = 1 +OUTPUT ghi du lieu ra logic 1 (noi voi VCC = 5V)
+;        PORT = 1 + INPUT du lieu duoc PULL UP len VCC = 5V (treo nguon)
+;        PORT = 0 + OUTPUT ghi du lieu ra logic = 0 (noi voi GND = 5V)
+;    3. PIN = thanh ghi doc du lieu loi vao
+;*/
+;/*
+;Muon PORT E bit 5 dieu khien duoc LED thi PORT E bit 5 phai la loi ra
+;    DDRE.5 = 1; thanh ghi DDR tac dong vao PORT E bit 5 logic = 1
+;Do noi den LED theo dang katot nen ta phai ghi logic loi ra bang 0
+;    PORTE.5 = 0; thanh ghi PORT tac dong vao PORT E bit 5 logic = 0
+;*/
+;#include <io.h>
+;PCODE: $00000000 VOL: 0
+	#ifndef __SLEEP_DEFINED__
+;PCODE: $00000001 VOL: 0
+	#define __SLEEP_DEFINED__
+;PCODE: $00000002 VOL: 0
+	.EQU __se_bit=0x20
+;PCODE: $00000003 VOL: 0
+	.EQU __sm_mask=0x1C
+;PCODE: $00000004 VOL: 0
+	.EQU __sm_powerdown=0x10
+;PCODE: $00000005 VOL: 0
+	.EQU __sm_powersave=0x18
+;PCODE: $00000006 VOL: 0
+	.EQU __sm_standby=0x14
+;PCODE: $00000007 VOL: 0
+	.EQU __sm_ext_standby=0x1C
+;PCODE: $00000008 VOL: 0
+	.EQU __sm_adc_noise_red=0x08
+;PCODE: $00000009 VOL: 0
+	.SET power_ctrl_reg=mcucr
+;PCODE: $0000000A VOL: 0
+	#endif
+;PCODE: $0000000B VOL: 0
+;PCODE: $0000000C VOL: 0
+;
+;void main(void)
+; 0000 0023 {
+
+	.CSEG
+;PCODE: $0000000D VOL: 0
+; 0000 0024 /*DDRE.5 = 1;    //gan E5 = output
+; 0000 0025 while (1)
+; 0000 0026     {
+; 0000 0027     // Please write your application code here
+; 0000 0028         PORTE.5 = 0; //sau moi chu ki cua chip thi lai chay lai => ton tai nguyen
+; 0000 0029     }
+; 0000 002A */
+; 0000 002B DDRE.5 = 1;
+;PCODE: $0000000E VOL: 0
+;PCODE: $0000000F VOL: 0
+; 0000 002C PORTE.5 = 0;    //bat den 1 lan nhung k tat
+;PCODE: $00000010 VOL: 0
+;PCODE: $00000011 VOL: 0
+; 0000 002D while (1)
+;PCODE: $00000012 VOL: 0
+; 0000 002E     {
+; 0000 002F     }
+;PCODE: $00000013 VOL: 0
+;PCODE: $00000014 VOL: 0
+; 0000 0030 }
+;PCODE: $00000015 VOL: 0
+;PCODE: $00000016 VOL: 0
+;PCODE: $00000017 VOL: 0

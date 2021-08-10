@@ -1,0 +1,11 @@
+VERSION:3 SOURCE_TIMESTAMP:51507B11
+NODE:I LEVEL:0 LINE:3 "C:\Users\admin\Desktop\KTMT\robotic\Code_vision\inc\io.h"
+NODE:I LEVEL:0 LINE:4 "C:\Users\admin\Desktop\KTMT\robotic\Code_vision\inc\alcd.h"
+NODE:I LEVEL:0 LINE:5 "C:\Users\admin\Desktop\KTMT\robotic\Code_vision\inc\delay.h"
+NODE:M LEVEL:0 LINE:95 "CT1"
+NODE:M LEVEL:0 LINE:96 "CT2"
+NODE:M LEVEL:0 LINE:97 "CT3"
+NODE:M LEVEL:0 LINE:98 "bam"
+NODE:M LEVEL:0 LINE:99 "nha"
+NODE:V LEVEL:0 LINE:101 "mode -> R4,R5"
+NODE:F LEVEL:0 LINE:103 "main(void)"

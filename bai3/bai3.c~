@@ -1,0 +1,16 @@
+/*
+ * bai3.c
+ *
+ * Bam cong tac 1 thi den sang, cong tac 2 thi den tat, ct3 thi den nhap nhay voi chu ki 1s
+ */
+
+#include <io.h>
+#include <delay.h>
+void main(void)
+{
+while (1)
+    {
+    // Please write your application code here
+
+    }
+}
